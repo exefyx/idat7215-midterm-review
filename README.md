@@ -1,6 +1,6 @@
 # IDAT 7215 Midterm Review
 
-Bilingual, question-first study site with a glossary, detailed per-question teaching notes, and 15 course and exam PDFs. Answer history and wrong questions are stored locally in the browser on this device.
+Bilingual, question-first study site with a glossary, detailed per-question teaching notes, and 15 course and exam PDFs. Answer history, wrong questions, and personal notes are stored locally in the current browser. The site reads existing records on every page load and preserves legacy storage keys during migration.
 
 ## Live site
 
@@ -12,7 +12,7 @@ The `materials/` directory contains the course slides, exam guidelines, and the 
 
 ## Cross-device progress sync
 
-Cloud sync is not enabled for now. Progress remains on the current computer and browser. The Supabase schema and configuration template are retained for a future setup, but the site does not load them or send progress to a server.
+Cloud sync is not enabled. Progress and notes remain in this browser only. Use the notebook panel’s “Export records and notes” / “Import backup” controls to preserve or move a backup. Browser storage is separated by browser and site address, so switching between a local file and GitHub Pages can make records appear separate; export from the old location and import at the new one.
 
 ## Local use
 
