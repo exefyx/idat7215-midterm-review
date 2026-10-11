@@ -1,22 +1,27 @@
 # IDAT 7215 Midterm Review
 
-A bilingual, question-first study site for the IDAT 7215 midterm. It includes practice questions, exam-style questions, bilingual key terms, and detailed explanations.
+Bilingual, question-first study site with a glossary, detailed per-question teaching notes, 15 course and exam PDFs, and optional cross-device progress sync.
 
 ## Live site
 
 https://exefyx.github.io/idat7215-midterm-review/
 
-## Progress and privacy
+## Public materials
 
-Answer history is currently stored in the browser's local storage under `idat7215-progress`. It does not sync between devices yet. The repository and the study-site content are public; do not enter private information into the site.
+The `materials/` directory contains the course slides, exam guidelines, and the three past-midterm PDFs supplied for this study project. The repository and those files are public and downloadable by anyone. Personal homework files and unrelated archives were not included.
 
-## Run locally
+## Cross-device progress sync
 
-Open `index.html` in a modern browser.
+The site keeps working locally without a cloud account. To enable cloud sync:
 
-The repository contains the generated study site only. Source course PDFs and past exam PDFs are not included.
-## IDAT 7224 study room
+1. Create a Supabase project.
+2. Run [`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL Editor. It creates per-user, per-device rows protected by row-level security.
+3. Add the GitHub Pages address `https://exefyx.github.io/idat7215-midterm-review/` to the Supabase Auth URL Configuration as the Site URL and an allowed redirect URL.
+4. Configure email delivery for Supabase Auth. Its built-in email provider only sends to project team addresses; for other users, set up custom SMTP.
+5. Put the project's **Project URL** and **publishable/anon key** in [`sync-config.js`](sync-config.js), then commit and push the file. These browser values are public; never use the Supabase service-role key in this site.
 
-Open the [IDAT 7224 Chapter 01–04 review site](https://exefyx.github.io/idat7215-midterm-review/idat7224.html). It includes 44 questions, chapter study cards, detailed explanations and short-answer rubrics, a searchable glossary, timed practice, and a browser-local wrong-answer list. The IDAT 7215 page also links to it.
+After configuration, each device signs in with the same email magic link. Progress is saved per device and merged for summaries and the wrong-question list. Use “退出账户” on shared devices.
 
-The course PDFs are not included. 7224 progress is stored in the current browser only and does not sync between devices.
+## Local use
+
+Open `index.html` in a modern browser. The generated question bank and teaching notes are included in the page.
