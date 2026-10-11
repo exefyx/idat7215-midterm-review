@@ -1,6 +1,6 @@
 # IDAT 7215 Midterm Review
 
-Bilingual, question-first study site with a glossary, detailed per-question teaching notes, 15 course and exam PDFs, and optional cross-device progress sync.
+Bilingual, question-first study site with a glossary, detailed per-question teaching notes, and 15 course and exam PDFs. Answer history and wrong questions are stored locally in the browser on this device.
 
 ## Live site
 
@@ -12,15 +12,7 @@ The `materials/` directory contains the course slides, exam guidelines, and the 
 
 ## Cross-device progress sync
 
-The site keeps working locally without a cloud account. To enable cloud sync:
-
-1. Create a Supabase project.
-2. Run [`supabase/schema.sql`](supabase/schema.sql) in the Supabase SQL Editor. It creates per-user, per-device rows protected by row-level security.
-3. Add the GitHub Pages address `https://exefyx.github.io/idat7215-midterm-review/` to the Supabase Auth URL Configuration as the Site URL and an allowed redirect URL.
-4. Configure email delivery for Supabase Auth. Its built-in email provider only sends to project team addresses; for other users, set up custom SMTP.
-5. Put the project's **Project URL** and **publishable/anon key** in [`sync-config.js`](sync-config.js), then commit and push the file. These browser values are public; never use the Supabase service-role key in this site.
-
-After configuration, each device signs in with the same email magic link. Progress is saved per device and merged for summaries and the wrong-question list. Use “退出账户” on shared devices.
+Cloud sync is not enabled for now. Progress remains on the current computer and browser. The Supabase schema and configuration template are retained for a future setup, but the site does not load them or send progress to a server.
 
 ## Local use
 
